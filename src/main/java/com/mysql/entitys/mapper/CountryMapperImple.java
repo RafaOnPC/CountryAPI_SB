@@ -15,13 +15,11 @@ public class CountryMapperImple implements CountryMapper{
             return null;
         }
 
-        CountryDTO countryDTO = new CountryDTO();
-        countryDTO.setId(country.getId());
-        countryDTO.setName_country(country.getName());
-        countryDTO.setName_capital(country.getCapital());
-
-
-        return countryDTO;
+        return CountryDTO.builder()
+                .id(country.getId())
+                .name_country(country.getName())
+                .name_capital(country.getCapital())
+                .build();
     }
 
     @Override
@@ -30,12 +28,11 @@ public class CountryMapperImple implements CountryMapper{
             return null;
         }
 
-        Country country = new Country();
-        country.setId(countryDTO.getId());
-        country.setName(countryDTO.getName_country());
-        country.setCapital(countryDTO.getName_capital());
-
-        return country;
+        return Country.builder()
+                .id(countryDTO.getId())
+                .name(countryDTO.getName_country())
+                .capital(countryDTO.getName_capital())
+                .build();
     }
 
     @Override
